@@ -1,13 +1,13 @@
 var data;
 
 function setup() {
-  createCanvas(1024, 512);
+  createCanvas(1024, 512); // this seems to be a good resolution for twitter
 }
 
 function draw() {
-  background("#2821AF");
+  background("#2821AF"); // blue background as tim does it https://timrodenbroeker.de/projects/programming-posters/
 
-  fill(255);
+  fill(255); // white text 
 
   textSize(12);
   textFont("Avara Bold Italic");
@@ -34,8 +34,13 @@ function draw() {
     rotate(PI/6)
     text("#machines4future", 100, 0);
   }
+}
 
-  
-  
+// save the canvas as jpeg
+function keyTyped() {
+  if (key === 's') {
+    console.log("saving file");  
+    save("myCanvas.jpg");
 
+  }
 }
