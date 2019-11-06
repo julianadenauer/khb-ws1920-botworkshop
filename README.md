@@ -1,5 +1,12 @@
 # Bot Workshop
 
+## Into
+- APIs 
+- Developer Tools im Browser
+- JSON Format
+- Test mit OpenWeathermap API (-> siehe code)
+- Einfache Zapier & Twitter Demo
+
 ## Twitter Reply Bot
 1) Accounts erstellen bei:
     - zapier.com
