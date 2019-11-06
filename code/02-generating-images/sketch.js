@@ -39,8 +39,9 @@ function draw() {
 // save the canvas as jpeg
 function keyTyped() {
   if (key === 's') {
-    console.log("saving file");  
-    save("myCanvas.jpg");
-
+    console.log("saving file");
+    
+    // name the file with the current date and time
+    save(year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second());
   }
 }
