@@ -1,5 +1,22 @@
 // load the puppeteer library
 const puppeteer = require('puppeteer');
+const axios = require("axios");
+const scp = require('scp'); // get the copy module
+
+var options = {
+  file: './downloads/image.jpg',
+  user: 'XXX',
+  host: 'XXX',
+  port: '22',
+  path: '~/html/upload/julian',
+  password: 'XXX'
+}
+
+var zapierWebhook = "https://hooks.zapier.com/hooks/catch/390512/o449cfy/";
+var text = "we generated a new image!";
+var imgUrl = "https://m4f.uber.space/upload/3/image.jpg";
+
+var requestUrl = zapierWebhook + "?text=" + text + "&image=" + imgUrl;
 
 async function generateImage(){
     // launch our chromium browser and let us see what is happening
@@ -26,6 +43,16 @@ async function generateImage(){
     // close the browser
     await browser.close();
 
+    // upload the file to our server
+    scp.send(options, function (err) {
+      if (err) console.log(err);
+      else console.log('File transferred.');
+    });
+
+    // activate our zap!
+    const response = await axios.get(requestUrl);
+    const data = response.data;
+    console.log(response);
 }
 
 // run our function!
