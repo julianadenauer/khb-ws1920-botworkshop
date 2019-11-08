@@ -7,7 +7,7 @@ function setup() {
 function draw() {
   background("#2821AF"); // blue background as tim does it https://timrodenbroeker.de/projects/programming-posters/
 
-  fill(255); // white text 
+  fill(255); // white text
 
   textSize(12);
   textFont("Avara Bold Italic");
@@ -17,17 +17,17 @@ function draw() {
   textAlign(RIGHT);
   text("KH Berlin Weißensee", 20, 0, width-40, 40);
 
-  
+
   // select the webfont we loaded in index.html
   textFont("Typefesse Pleine");
-  
-  textSize(mouseY);
+
+  textSize(random(6, 400));
 
   // text horizontal und vertikal zentrieren
   textAlign(LEFT, CENTER);
   translate(width/2, height/2);
 
-  rotate(mouseX/100.0);
+  rotate(random(0, 2*PI));
 
   // eine kleine schleife
   for(let i=0; i<12; i++){
@@ -40,8 +40,10 @@ function draw() {
 function keyTyped() {
   if (key === 's') {
     console.log("saving file");
-    
+
     // name the file with the current date and time
-    save(year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second());
+    //save(year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second());
+
+    save("image.jpg");
   }
 }
